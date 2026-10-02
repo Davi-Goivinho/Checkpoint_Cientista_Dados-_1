@@ -28,7 +28,7 @@ O objetivo central é analisar como o consumo diário de café influencia a qual
 ## Entregas do Projeto
 
 - [x] **Entrega #1: Análise Exploratória de Dados (EDA)** — Documentação em [`reports/parte_1_eda.md`](reports/parte_1_eda.md) e código em [`notebooks/analise_cafe_sono.ipynb`](notebooks/analise_cafe_sono.ipynb)
-- [ ] **Entrega #2: Visualização e Insights de Negócio**
+- [x] **Entrega #2: Visualização e Insights de Negócio** — Documentação em [`reports/parte_2_insights.md`](reports/parte_2_insights.md) e código em [`notebooks/analise_cafe_sono.ipynb`](notebooks/analise_cafe_sono.ipynb)
 - [ ] **Entrega #3: Modelo Preditivo & Recomendações**
 
 ---
