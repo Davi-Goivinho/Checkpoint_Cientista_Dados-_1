@@ -1,15 +1,8 @@
-# 🤖 Entrega #3: Modelo Preditivo & Recomendações para o Negócio
-
-**Empresa Parceira:** Health&Life Analytics  
-**Arquivo de Código:** [`notebooks/analise_cafe_sono.ipynb`](../notebooks/analise_cafe_sono.ipynb)  
-**Artefato do Modelo:** [`models/best_sleep_quality_model.joblib`](../models/best_sleep_quality_model.joblib)  
-**Dataset Processado:** [`data/processed_coffee_health.csv`](../data/processed_coffee_health.csv)
-
----
+# Entrega #3: Modelo Preditivo & Recomendações para o Negócio
 
 ## 1. Visão Geral da Modelagem
 
-O objetivo central desta entrega é desenvolver e validar modelos de Machine Learning supervisionados para prever a qualidade do sono (`Sleep_Quality`) dos clientes a partir do seu perfil de hábitos (consumo de café, cafeína), estilo de vida, condições fisiológicas e indicadores sociodemográficos.
+O objetivo desta parte é desenvolver e validar modelos de ML supervisionados para prever a qualidade do sono a partir do perfil de hábitos consumo de café, cafeína, estilo de vida, estresse e saúde.
 
 A variável alvo possui 4 classes ordinais:
 - **Poor (Sono Ruim)**
@@ -17,13 +10,10 @@ A variável alvo possui 4 classes ordinais:
 - **Good (Sono Bom)**
 - **Excellent (Sono Excelente)**
 
----
-
 ## 2. Pré-processamento e Engenharia de Features
 
 ### 2.1 Limpeza e Seleção de Atributos
 - **Remoção de Identificador:** A coluna `ID` foi descartada por não conter valor preditivo.
-- **Tratamento Categórico:** A coluna `Health_Issues` manteve a integridade de sua categoria `"None"` (ausência de patologia).
 
 ### 2.2 Criação de Features Derivadas (Feature Engineering)
 Foram construídas duas variáveis derivadas baseadas em hipóteses clínicas e comportamentais:
@@ -41,8 +31,6 @@ Para evitar qualquer risco de vazamento de dados (*data leakage*), o pré-proces
 - **Teste:** 2.000 amostras (20%)
 - **Estratificação:** Divisão estratificada pela variável alvo `Sleep_Quality` para assegurar que a proporção de cada uma das 4 classes seja rigorosamente idêntica nos dois conjuntos.
 
----
-
 ## 3. Avaliação Comparativa dos Modelos
 
 Foram implementados e comparados dois modelos de classificação supervisionada:
@@ -56,7 +44,6 @@ Foram implementados e comparados dois modelos de classificação supervisionada:
 | **Regressão Logística** | 99,36% | 99,00% | **0,36%** | **0,985** |
 | **Random Forest Classifier** | 99,99% | 99,10% | **0,89%** | **0,990** |
 
----
 
 ### 3.2 Relatório de Classificação Detalhado no Teste (Random Forest)
 
@@ -68,7 +55,6 @@ Foram implementados e comparados dois modelos de classificação supervisionada:
 | **Excellent** | 0,99 | 0,94 | 0,97 | 270 |
 | **Média Ponderada (Weighted Avg)** | **0,99** | **0,99** | **0,99** | **2.000** |
 
----
 
 ### 3.3 Matriz de Confusão no Teste (Random Forest)
 
@@ -83,7 +69,6 @@ Real: Excellent        0            0             16              254
 - **Classes Críticas (Poor e Fair):** Acurácia de 100% (zero falsos positivos e zero falsos negativos).
 - **Classes Good vs. Excellent:** Apenas 18 amostras de 2.000 sofreram pequenas confusões na fronteira sutil entre sono Good e Excellent.
 
----
 
 ## 4. Diagnóstico dos Modelos: Overfitting vs. Underfitting
 
@@ -96,16 +81,13 @@ Real: Excellent        0            0             16              254
   4. `Sleep_to_Coffee_Ratio` (6,1%): A feature derivada criada capturou com sucesso o equilíbrio sono/café.
   5. `Caffeine_mg` e `Coffee_Intake` (2,2%): Estimulantes diretos que modulam a fronteira de qualidade.
 
----
-
 ## 5. Artefatos Exportados
 
 1. **Dataset Processado:** Arquivo CSV contendo todas as variáveis tratadas e as novas features derivadas disponível em [`data/processed_coffee_health.csv`](../data/processed_coffee_health.csv).
 2. **Modelo Salvo:** Pipeline completo com pré-processamento e Random Forest serializado via Joblib disponível em [`models/best_sleep_quality_model.joblib`](../models/best_sleep_quality_model.joblib).
 
----
 
-## 🎯 6. Recomendações para o Negócio (Health&Life Analytics)
+## 6. Recomendações para o Negócio (Health&Life Analytics)
 
 Com base nas evidências analíticas e no modelo preditivo validado, sugerimos as seguintes ações estratégicas para orientar os clientes:
 
